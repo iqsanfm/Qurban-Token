@@ -1,17 +1,19 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-mongoose.connect(
-    'mongodb+srv://qurban:qurbantoken@qbn.nnpor.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
-    { useNewUrlParser: true, useUnifiedTopology: true }
-);
+module.exports = () => {
 
-const paymentSchema = new mongoose.Schema({
-    id: String,
-    itemId: String,
-    paid: Boolean,
-});
+    const connectionParams = {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
 
-const Payment = mongoose.model('Payment', paymentSchema);
+    };
 
+    try {
+        mongoose.connect(process.env.DB, connectionParams);
+        console.log("Connected to database successfully");
 
-module.exports = { Payment };
+    }catch (error){
+        console.log(error);
+        console.log("Could not connect Database");
+    }
+};

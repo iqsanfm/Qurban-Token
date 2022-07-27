@@ -1,0 +1,84 @@
+const Koa = require('koa');
+const Router = require('@koa/router');
+const cors = require('@koa/cors');
+const ethers = require('ethers');
+const PaymentProcessor = require('../build/contracts/PaymentProcessor.json');
+const { Payment } = require('./db.js');
+
+
+const app = new Koa();
+const router = new Router();
+
+const items = {
+    '1': {id: 1, url:'http://urlToDownloadItem1'},
+    '2': {id: 2, url:'http://urlToDownloadItem2'},
+
+}
+
+
+router.get('/api/getPaymentId/:itemId', async (ctx, next) => {
+    const paymentId = (Math.random() * 10000).toFixed(0);
+    await Payment.create({
+        id: paymentId,
+        itemId: ctx.params.itemId,
+        paid: false,
+    });
+    ctx.body = {
+        paymentId
+
+    };
+});
+
+router.get('/api/getItemUrl/:paymentId', async (ctx, next) => {
+    const payment = await Payment.findOne({id: ctx.params.paymentId});
+    console.log(ctx.params.paymentId);
+    console.log(payment);
+
+    if(payment && payment.paid === true) {
+        ctx.body = {
+            Url: items[payment.itemId].url
+        };
+    } else {
+        console.log('here');
+        ctx.body = {
+            url: '',
+        };
+    }
+});
+
+app
+    .use(cors())
+    .use(router.routes())
+    .use(router.allowedMethods());
+
+app.listen(4000, () => {
+    console.log('server is running on port 4000');
+});
+
+const listenToEvents = () => {
+    const provider = new ethers.providers.JsonRpcProvider('http://localhost:9545');
+    const networkId = '5777';
+
+    const paymentProcessor = new ethers.Contract(
+        PaymentProcessor.networks[networkId].address,
+        PaymentProcessor.abi,
+        provider
+    );
+
+    paymentProcessor.on('PaymentDone', async (payer, amount, payementId, date) => {
+        console.log(`
+        from ${payer}
+        amount ${amount}
+        paymentId ${payementId}
+        date ${(new Date(date.toNumber() * 1000)).toLocaleString()}
+        `);
+
+        const payment = await Payment.findOne({id: payementId.toString()});
+        if(payment) {
+            payment.paid = true;
+            await payment.save();
+        }
+    });
+};
+
+listenToEvents();

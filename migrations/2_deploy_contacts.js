@@ -5,7 +5,7 @@ const PaymentProcessor = artifacts.require('../contracts/PaymentProcessor.sol');
 module.exports = async function (deployer, network, addresses) {
   const [admin, payer, _] = addresses;
 
-  if(network === 'develop') {
+  if(network === 'develop' || network === 'development') {
       await deployer.deploy(Qbn);
       const qbn = await Qbn.deployed();
       await qbn.faucet(payer, web3.utils.toWei('10000'));

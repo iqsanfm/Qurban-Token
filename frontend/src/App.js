@@ -1,41 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import getBlockchain from './ethereum.js';
-import Store from './store.js';
-
+import { Route, Routes, Navigate } from "react-router-dom";
+import Transaksi from "./components/Transaksi";
+import Signup from "./components/Signup";
+import Login from "./components/Login";
+import Main from "./components/Main";
 
 function App() {
-  const [paymentProcessor, setPaymentProcessor] = useState(undefined);
-  const [Qbn, setQbn] = useState(undefined);
-  
-  useEffect(() => {
-    const init = async () => {
-      const { paymentProcessor, qbn } = await getBlockchain();
-      setPaymentProcessor(paymentProcessor);
-      setQbn(qbn);
-    }
-    init();
+	const user = localStorage.getItem("Store");
 
-  }, []);
-
-  if(typeof window.ethereum === 'undefined') {
-    return (
-      <div> clasName='container'>
-        <div> className='col-sm-12'>
-          <h1>Treansaksi Hewan Qurban</h1>
-          <p> you need to install the metamask! </p>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div clasName='container'>
-      <div className='col-sm-12'>
-        <h1>Treansaksi Hewan Qurban</h1>
-        <Store paymentProcessor={paymentProcessor} qbn={Qbn}/>
-    </div>
-  </div>
-  );
+	return (
+		<Routes>
+			{user && <Route path="/" exact element={<Main />} />}
+			<Route path="/Signup" exact element={<Signup />} />
+			<Route path="/Login" exact element={<Login />} />
+      <Route path="/Transaksi" exact element={<Transaksi/>} />
+			<Route path="/" element={<Navigate replace to="/signup" />} />
+		</Routes>
+	);
 }
 
 export default App;

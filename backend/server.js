@@ -1,77 +1,37 @@
-const Koa = require('koa');
+require("dotenv").config();
+// const express = require("express");
+// const app = express();
+const koa = require('koa');
 const Router = require('@koa/router');
-const cors = require('@koa/cors');
-const ethers = require('ethers');
-const PaymentProcessor = require('../frontend/src/contracts/PaymentProcessor.json');
-const { Payment } = require('./db.js');
+const cors = require("@koa/cors");
+const connection = require("./db");
+const itemIdRoutes = require("./routes/itemid.js");
+const paymentIdRoutes = require("./routes/paymentid.js");
+const authRoutes = require("./routes/auth.js");
+const userRoutes = require("./routes/user.js");
 
 
-const app = new Koa();
-const router = new Router();
+const app = new koa();
+const router = Router();
+// const port = 4000
 
-const items = {
-    '1': {id: 1, url:'http://urlToDownloadItem1'},
-    '2': {id: 2, url:'http://urlToDownloadItem2'},
-}
+//database connection
+connection();
 
-router.get('/api/getPaymentId/:itemId', async (ctx) => {
-    const paymentId = (Math.random() * 10000).toFixed(0);
-    await Payment.create({
-        id: paymentId,
-        itemId: ctx.params.itemId,
-        paid: false,
-    });
-    ctx.body = {
-        paymentId
+//middlwares
+app.use(cors());
+app.use(router.routes());
+app.use(router.allowedMethods());
+    
 
-    };
-});
 
-router.get('/api/getItemUrl/:paymentId', async (ctx) => {
-    const payment = await Payment.findOne({id: ctx.params.paymentId});
-    if(payment && payment.paid === true) {
-        ctx.body = {
-            Url: items[payment.itemId].url
-        };
-    } else {
-        ctx.body = {
-            url: '',
-        };
-    }
-});
 
-app
-    .use(cors())
-    .use(router.routes())
-    .use(router.allowedMethods());
+//routes
+app.use(itemIdRoutes.routes());
+app.use(paymentIdRoutes.routes());
+app.use(authRoutes.routes());
+app.use(userRoutes.routes());
 
-app.listen(4000, () => {
-    console.log('server is running on port 4000');
-});
 
-const listenToEvents = () => {
-    const provider = new ethers.providers.JsonRpcProvider('http://localhost:9545');
-    const networkId = '5777';
-
-    const paymentProcessor = new ethers.Contract(
-        PaymentProcessor.networks[networkId].address,
-        PaymentProcessor.abi,
-        provider
-    );
-
-    paymentProcessor.on('PaymentDone', async (payer, amount, payementId, date) => {
-        console.log(`
-        from ${payer}
-        amount ${amount}
-        paymentId ${payementId}
-        date ${(new Date(date.toNumber() * 1000)).toLocaleString()}
-        `);
-        const payment = await Payment.findOne({id: payementId});
-        if(payment) {
-            payment.paid = true;
-            await payment.save();
-        }
-    });
-};
-
-listenToEvents();
+const port = process.env.PORT || 4000;
+app.listen(port, console.log(`Listening on port ${port}...`));
