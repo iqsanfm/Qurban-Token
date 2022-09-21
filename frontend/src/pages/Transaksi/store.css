@@ -1,0 +1,137 @@
+.container1{
+    position: absolute;
+    display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.cardcontainer{
+    position: absolute;
+    align-items: center;
+    text-align: center;
+    width: 267px;
+    height: 325px;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+    color: white;
+}
+.card1{
+    position: absolute;
+    width: 267px;
+    height: 522px;
+    left: 388px;
+    top: 230px;
+
+}
+.card2 {
+    position: absolute;
+    width: 267px;
+    height: 522px;
+    left: 872px;
+    top: 230px;
+
+}
+
+.text1{
+    align-items: center;
+    color: rgb(255, 255, 255);
+    padding-left: 5px;
+    margin-top: 0px;
+    margin-left: 520px;
+    font-family: "ubuntu-mono";
+    font-size: 20px;
+    opacity: 1;
+}
+.container{
+    width: 100%;
+	min-height: 100vh;
+	align-items: center;
+	justify-content: center;
+	background: rgb(29,2,16);
+	background: linear-gradient(41deg, rgba(29,2,16,1) 0%, rgba(66,19,60,1) 49%, rgba(22,31,79,1) 72%, rgba(31,22,73,1) 100%);
+}
+.nav {
+	display: flex;
+    background-color:  rgba(16, 16, 14, 0.38);
+    color: white;
+    display: flex;
+	justify-content: space-between;
+    align-items: stretch;
+	
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  .nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  .sitetitle {
+	margin-top: 5px;
+	color: white;
+    font-size: 2rem;
+  }
+.white_home {
+	border: none;
+	outline: none;
+	padding: 12px 0;
+	background-color: transparent;
+	font-style: normal; 
+	font-variant: normal;
+	font-weight: bold;
+	font-family: Ubuntu Mono;
+	font-size: 14px;
+	cursor: pointer;
+	margin-right: 5px;
+	color: white;
+	
+	
+}
+.white_transaksi {
+	border: none;
+	outline: none;
+	padding: 12px 0;
+	background-color: transparent;
+	font-style: normal; 
+	font-variant: normal;
+	font-weight: bold;
+	font-family: Ubuntu Mono;
+	font-size: 14px;
+	cursor: pointer;
+	margin-right: 5px;
+	/* background-color: red; */
+	color: white;
+	margin-left: 200px
+	
+}
+.white_profile{
+		border: none;
+		outline: none;
+		padding: 12px 0;
+		background-color: transparent;
+		font-weight: bold;
+		font-style: normal; 
+		font-variant: normal;
+		font-family: Ubuntu Mono;
+		font-size: 14px;
+		cursor: pointer;
+		margin-right: 5px;
+		/* background-color: red; */
+		color: white;
+}
+.white_logout{
+	border: none;
+	outline: none;
+	padding: 12px 0;
+	background-color: transparent;
+	font-weight: bold;
+	font-style: normal; 
+	font-variant: normal;
+	font-family: Ubuntu Mono;
+	font-size: 14px;
+	cursor: pointer;
+	margin-right: 5px;
+	/* background-color: red; */
+	color: white;
+}

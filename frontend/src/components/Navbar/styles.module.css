@@ -1,0 +1,72 @@
+.nav {
+  display:flex ;
+    background-color:  rgba(16, 16, 14, 0.38);
+    color: white;
+	justify-content: space-between;
+    align-items: stretch;
+	
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  .nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  .sitetitle {
+	margin-top: 5px;
+	color: white;
+    font-size: 2rem;
+  }
+  .white_dashboard {
+    border: none;
+    outline: none;
+    padding: 12px 0;
+    background-color: transparent;
+    font-style: normal; 
+    font-variant: normal;
+    font-weight: bold;
+    font-family: Ubuntu Mono;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 5px;
+    /* background-color: red; */
+    color: white;
+    margin-left: 200px
+    
+  }
+
+  .white_transaksi{
+    border: none;
+    outline: none;
+    padding: 12px 0;
+    background-color: transparent;
+    font-weight: bold;
+    font-style: normal; 
+    font-variant: normal;
+    font-family: Ubuntu Mono;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 5px;
+    /* background-color: red; */
+    color: white;
+  }
+  
+.white_home {
+	border: none;
+	outline: none;
+	padding: 12px 0;
+	background-color: transparent;
+	font-style: normal; 
+	font-variant: normal;
+	font-weight: bold;
+	font-family: Ubuntu Mono;
+	font-size: 14px;
+	cursor: pointer;
+	margin-right: 5px;
+	color: white;
+	
+	
+}

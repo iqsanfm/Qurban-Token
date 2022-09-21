@@ -1,0 +1,117 @@
+.signup_container {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgb(29,2,16);
+	background: linear-gradient(41deg, rgba(29,2,16,1) 0%, rgba(66,19,60,1) 49%, rgba(22,31,79,1) 72%, rgba(31,22,73,1) 100%);
+}
+
+.signup_form_container {
+	width: 900px;
+	height: 500px;
+	display: flex;
+	border-radius: 10px;
+	
+}
+
+.left {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+		font-family: Ubuntu Mono;
+}
+
+.left h1 {
+	font-style: normal; 
+	font-variant: normal;
+	font-weight: bold;
+	font-family: Ubuntu Mono;
+	color: white;
+}
+
+.right {
+	flex: 2;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.form_container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.form_container h1 {
+	color:white;
+	font-size: 20px;
+	font-style: normal; 
+	font-variant: normal;
+	font-family: Ubuntu Mono;
+}
+
+.input {
+	outline: none;
+	border: none;
+	width: 370px;
+	padding: 15px;
+	color: white;
+	background: rgba(16, 16, 14, 0.38);
+    border-radius: 10px;
+	margin: 5px 0;
+	font-size: 14px;
+	font-style: normal; 
+	font-variant: normal;
+	font-family: Ubuntu Mono;
+}
+.text1 {
+	font-size: 14px;
+	color: #610ea5;
+	margin-top: 10px;
+}
+.error_msg {
+	width: 370px;
+	padding: 15px;
+	margin: 5px 0;
+	font-size: 14px;
+	background-color: #f34646;
+	color: white;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.white_btn,
+.green_btn {
+	position: absolute;
+	width: 117px;
+	height: 40px;
+	left: calc(50% - 110px/2 - 4.5px);
+	top: calc(50% - 28px/2 + 280px);
+	background: rgba(0, 0, 0, 0.35);
+	border-radius: 10px; 
+	color: white;
+	font-family: Ubuntu Mono;
+	border-color: transparent;
+}
+
+.green_btn {
+	position: absolute;
+	width: 117px;
+	height: 40px;
+	left: calc(50% - 110px/2 - 4.5px);
+	top: calc(50% - 0px/2 + 215px);
+	color: white;
+	background: rgba(0, 0, 0, 0.35);
+	border-radius: 10px;
+	border-color: transparent;
+	font-family: Ubuntu Mono;
+}

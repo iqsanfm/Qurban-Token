@@ -1,0 +1,11 @@
+.container{
+	width: 100%;
+	min-height: 100vh;
+    height: 700px;
+	background: rgb(29,2,16);
+	background: linear-gradient(41deg, rgba(29,2,16,1) 0%, rgba(66,19,60,1) 49%, rgba(22,31,79,1) 72%, rgba(31,22,73,1) 100%);
+}
+.container section {
+    flex-direction: center;
+    justify-content: center;
+}

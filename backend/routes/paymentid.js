@@ -1,48 +1,49 @@
-const Koa = require('koa');
-const Router = require('koa-router');
-const cors = require('@koa/cors');
-const ethers = require('ethers');
-const PaymentProcessor = require('../../build/contracts/PaymentProcessor.json');
+// const Koa = require('koa');
+// const Router = require('koa-router');
+// const cors = require('@koa/cors');
+const express = require('express')
+const app = express()
+const router = express.Router()
+
+
+// const ethers = require('ethers');
+// const PaymentProcessor = require('../../build/contracts/PaymentProcessor.json');
 const { Payment } = require('../models/payment.js');
+const { Invoice } = require('../models/invoice.js');
+
+// const app = new Koa();
+// const router = new Router();
+
+// const app = new express();
+// const router = AsyncRouter();
+// const router = new Router();
+
+const items = {
+    '1': {id: 1, url:'http://urlToDownloadItem1'},
+    '2': {id: 2, url:'http://urlToDownloadItem2'},
+
+}
 
 
-const app = new Koa();
-const router = new Router();
 
-// const items = {
-//     '1': {id: 1, url:'http://urlToDownloadItem1'},
-//     '2': {id: 2, url:'http://urlToDownloadItem2'},
-
-// }
-
-
-// router.get('/api/itemId', async (ctx, next) => {
-//     const paymentId = (Math.random() * 10000).toFixed(0);
-//     await Payment.create({
-//         id: paymentId,
-//         itemId: ctx.params.itemId,
-//         paid: false,
-//     });
-//     ctx.body = {
-//         paymentId
-
-//     };
-// });
-
-router.get('/api/getItemUrl/:paymentId', async (ctx, next) => {
-    const payment = await Payment.findOne({id: ctx.params.paymentId});
-    console.log(ctx.params.paymentId);
+router.get('/:paymentId', async ( req, res, next) => {
+    const payment = await Payment.findOne({id: req.params.paymentId});
+    console.log(req.params.paymentId);
     console.log(payment);
 
     if(payment && payment.paid === true) {
-        ctx.body = {
-            Url: items[payment.itemId].url
-        };
+
+        payment.url = items[payment.itemId].url;
+        await payment.save();
+        
+        res.json  ({
+            "Url": items[payment.itemId].url
+        });
     } else {
         console.log('here');
-        ctx.body = {
-            url: '',
-        };
+        res.json   ({
+            "url" : '',
+        });
     }
 });
 
