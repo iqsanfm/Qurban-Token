@@ -1,0 +1,141 @@
+.navbar {
+	width: 100%;
+	height: 70px;
+	background-color: #3bb19b;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.navbar h1 {
+	color: white;
+	font-size: 25px;
+	margin-left: 20px;
+}
+.nav {
+	display: flex;
+    background-color:  rgba(16, 16, 14, 0.38);
+    color: white;
+    display: flex;
+	justify-content: space-between;
+    align-items: stretch;
+	
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  .nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  .sitetitle {
+	margin-top: 5px;
+	color: white;
+    font-size: 2rem;
+  }
+.white_home {
+	border: none;
+	outline: none;
+	padding: 12px 0;
+	background-color: transparent;
+	font-style: normal; 
+	font-variant: normal;
+	font-weight: bold;
+	font-family: Ubuntu Mono;
+	font-size: 14px;
+	cursor: pointer;
+	margin-right: 5px;
+	color: white;
+	
+	
+}
+.white_transaksi {
+	border: none;
+	outline: none;
+	padding: 12px 0;
+	background-color: transparent;
+	font-style: normal; 
+	font-variant: normal;
+	font-weight: bold;
+	font-family: Ubuntu Mono;
+	font-size: 14px;
+	cursor: pointer;
+	margin-right: 5px;
+	/* background-color: red; */
+	color: white;
+	margin-left: 200px
+	
+}
+.white_profile{
+		border: none;
+		outline: none;
+		padding: 12px 0;
+		background-color: transparent;
+		font-weight: bold;
+		font-style: normal; 
+		font-variant: normal;
+		font-family: Ubuntu Mono;
+		font-size: 14px;
+		cursor: pointer;
+		margin-right: 5px;
+		/* background-color: red; */
+		color: white;
+}
+.white_logout{
+	border: none;
+	outline: none;
+	padding: 12px 0;
+	background-color: transparent;
+	font-weight: bold;
+	font-style: normal; 
+	font-variant: normal;
+	font-family: Ubuntu Mono;
+	font-size: 14px;
+	cursor: pointer;
+	margin-right: 5px;
+	/* background-color: red; */
+	color: white;
+}
+.main_container{
+	color:#333;
+}
+.container{
+	width: 100%;
+	min-height: 100vh;
+    height: 700px;
+	background: rgb(29,2,16);
+	background: linear-gradient(41deg, rgba(29,2,16,1) 0%, rgba(66,19,60,1) 49%, rgba(22,31,79,1) 72%, rgba(31,22,73,1) 100%);
+}
+.home{
+	align-items: center;
+	justify-content: center;
+}
+.home h1 {
+	/* background-color:  red; */
+	font-weight: bold;
+	font-style: normal; 
+	font-variant: normal;
+	font-family: Ubuntu Mono;
+	font-size: 30px;
+	cursor: pointer;
+	text-align: center;
+	color: rgba(22, 238, 212, 0.77);
+	position: absolute;
+	left: 113px;
+	top: 200px;
+}
+.home p {
+	position: absolute;
+	height: 172px;
+	width: 600;
+	left: 130px;
+	top: 241px;
+	color: white;
+	font-family: 'Ubuntu Mono';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 28px;
+}

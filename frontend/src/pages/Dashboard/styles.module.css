@@ -1,0 +1,199 @@
+.navbar {
+	width: 100%;
+	height: 70px;
+	background-color: #3bb19b;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.navbar h1 {
+	color: white;
+	font-size: 25px;
+	margin-left: 20px;
+}
+.nav {
+	display: flex;
+    background-color:  rgba(16, 16, 14, 0.38);
+    color: white;
+    display: flex;
+	justify-content: space-between;
+    align-items: stretch;
+	
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  .nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  .sitetitle {
+	margin-top: 5px;
+	color: white;
+    font-size: 2rem;
+  }
+.white_home {
+	border: none;
+	outline: none;
+	padding: 12px 0;
+	background-color: transparent;
+	font-style: normal; 
+	font-variant: normal;
+	font-weight: bold;
+	font-family: Ubuntu Mono;
+	font-size: 14px;
+	cursor: pointer;
+	margin-right: 5px;
+	color: white;
+	
+	
+}
+.white_transaksi {
+	border: none;
+	outline: none;
+	padding: 12px 0;
+	background-color: transparent;
+	font-style: normal; 
+	font-variant: normal;
+	font-weight: bold;
+	font-family: Ubuntu Mono;
+	font-size: 14px;
+	cursor: pointer;
+	margin-right: 5px;
+	/* background-color: red; */
+	color: white;
+	margin-left: 200px
+	
+}
+.white_profile{
+	border: none;
+	outline: none;
+	padding: 12px 0;
+	background-color: transparent;
+	font-weight: bold;
+	font-style: normal; 
+	font-variant: normal;
+	font-family: Ubuntu Mono;
+	font-size: 14px;
+	cursor: pointer;
+	margin-right: 5px;
+	/* background-color: red; */
+	color: white;
+}
+.main_container{
+	align-items: center;
+	justify-content: center;
+	height: fit-content;
+	text-align: center;
+	color:#333;
+	display:initial;
+	background-color: red;
+}
+.container{
+	display: inline-block;
+	width: 100%;
+	min-height: 100vh;
+    height: 270px;
+	background: rgb(29,2,16);
+	background: linear-gradient(41deg, rgba(29,2,16,1) 0%, rgba(66,19,60,1) 49%, rgba(22,31,79,1) 72%, rgba(31,22,73,1) 100%);
+}
+.home{
+	align-items: center;
+	justify-content: center;
+}
+.home h1 {
+	/* background-color:  red; */
+	font-weight: bold;
+	font-style: normal; 
+	font-variant: normal;
+	font-family: Ubuntu Mono;
+	font-size: 30px;
+	cursor: pointer;
+	text-align: center;
+	color: rgba(22, 238, 212, 0.77);
+	position: absolute;
+	left: 113px;
+	top: 200px;
+}
+.home p {
+	position: absolute;
+	height: 172px;
+	width: 600;
+	left: 130px;
+	top: 241px;
+	color: white;
+	font-family: 'Ubuntu Mono';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 28px;
+}
+.dashboard{
+	align-items: center;
+
+}
+.login{
+	position: absolute;
+width: 500px;
+height:65px;
+left: 425px;
+top: 240px;
+text-align: center;
+background: rgba(6, 5, 5, 0.12);
+}
+.login p{
+	font-family: 'Ubuntu Mono';
+font-style: normal;
+margin-top: 15px;
+font-size: 20px;
+line-height: 32px;
+color:white;
+}
+
+.dashboard{
+	display: flex;
+	align-items: center;
+	text-align: center;
+	margin-top: 100px;
+}
+.dashboard h1{
+	margin-left: 550px;
+	text-align: center;
+	margin-top: 20px;
+	color: white;
+	font-size: 20px;
+	font-family: 'Ubuntu Mono';
+	font-style: normal;
+}
+.qbn{
+	flex-direction:row;
+	display: flex;
+	
+}
+.img {
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 30px;
+	
+}
+.img1{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+@media only screen and (min-width: 1222px) {
+	.main_container .container .dashboard .nav .home .login {
+		display: flex;
+	}
+}
+@media only screen and (max-width: 768px) {
+	/* For mobile phones: */
+	.container .dashboard .nav .home .login .white_home .white_profile .white_transaksi{
+	  width: auto;
+	  height: auto;
+	  display: flex;
+	}
+  }

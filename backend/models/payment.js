@@ -1,14 +1,13 @@
-const Koa = require('koa');
-const Router = require('koa-router');
-const cors = require('@koa/cors');
 const mongoose = require('mongoose');
 const ethers = require('ethers');
 const PaymentProcessor = require('../../build/contracts/PaymentProcessor.json');
 
 const paymentSchema = new mongoose.Schema({
+    email: String,
     id: String,
     itemId: String,
     paid: Boolean,
+    url : String,
 });
 
 const Payment = mongoose.model('Payment', paymentSchema);
@@ -26,9 +25,9 @@ const listenToEvents = () => {
     );
 
     paymentProcessor.on('PaymentDone', async (payer, amount, payementId, date) => {
-        console.log(`
+        console.log(`New Payment Received:
         from ${payer}
-        amount ${amount}
+        amount ${amount.toString()}
         paymentId ${payementId}
         date ${(new Date(date.toNumber() * 1000)).toLocaleString()}
         `);
@@ -46,4 +45,4 @@ const listenToEvents = () => {
 listenToEvents();
 
 
-module.exports = { Payment };
+module.exports = { Payment  };
